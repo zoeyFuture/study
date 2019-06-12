@@ -1,0 +1,1 @@
+{"version":3,"file":"Singleton.js","sourceRoot":"","sources":["../../../../../js/ts杂谈/设计模式实现/单例模式/Singleton.js"],"names":[],"mappings":"AAIA,IAAI,SAAS,GAAiB,CAAC;IAC3B,SAAS,SAAS;IAClB,CAAC;IACD,SAAS,CAAC,WAAW,GAAG;QACpB,OAAO,IAAI,CAAC,QAAQ,CAAC;IACzB,CAAC,CAAC;IACF,SAAS,CAAC,QAAQ,GAAG,IAAI,SAAS,EAAE,CAAC;IACrC,OAAO,SAAS,CAAC;AACrB,CAAC,EAAE,CAAC,CAAC"}

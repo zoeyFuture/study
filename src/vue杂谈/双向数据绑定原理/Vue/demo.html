@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo示例1</title>
+    <link rel="stylesheet" href="../自定义Vue/js/index.css">
+</head>
+<body>
+<div id="app">
+    {{obj.a}}
+    <p>{{obj.b}}</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          obj: {
+            a: 1,
+            b: 1,
+          },
+        }
+      },
+      methods: {
+      },
+      created() {
+        console.log(this.obj);
+      }
+    });
+</script>
+</body>
+</html>

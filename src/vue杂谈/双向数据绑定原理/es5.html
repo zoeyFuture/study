@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+</head>
+<body>
+<input type="text" id="inp" />
+<div id="box"></div>
+</body>
+<script>
+  let obj = {};
+  let val = '';
+
+  let oInp = document.getElementById('inp')
+  let oBox = document.getElementById('box')
+
+  Object.defineProperty(obj, 'name', {
+    configurable: true,
+    enumerable: true,
+    get: function() {
+      console.log('获取数据：', val);
+      return val;
+    },
+    set: function(_val) {
+      val = _val;
+      // 更新数据 -> 更新视图
+      oInp.value = _val;
+      oBox.innerHTML = _val;
+    }
+  });
+
+  oInp.addEventListener('input', function(e){
+    // 更新视图 -> 更新modal
+    obj.name = e.target.value;
+  });
+
+  obj.name = '哈哈哈';
+
+</script>
+</html>

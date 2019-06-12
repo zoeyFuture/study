@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Vue双向数据绑定原理小析</title>
+    <!--<link rel="stylesheet" type="text/css" href="index.css" />-->
+</head>
+<body>
+
+<div id="app">
+    <button v-on:click="clear">重置数据</button>
+    <div>
+        <input type="text" v-model="title">
+        <div v-text="title"></div>
+    </div>
+
+    <hr>
+
+    <button v-on:click="show">显示/隐藏</button>
+    <div v-if="isShow">
+        <input type="text" v-model="webSite">
+        <div v-text="webSite"></div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

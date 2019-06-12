@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo示例1</title>
+    <link rel="stylesheet" href="../自定义Vue/js/index.css">
+</head>
+<body>
+<div id="app">
+    <button v-on:click="clear">重置数据</button>
+    <div>
+        <input type="text" v-model="title">
+        <div v-text="title"></div>
+    </div>
+
+    <hr>
+
+    <button v-on:click="show">显示/隐藏</button>
+    <div v-if="isShow">
+        <input type="text" v-model="webSite">
+        <div v-text="webSite"></div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          title: 'Vue Demo示例1',
+          isShow: true,
+          webSite: 'http://www.baidu.com',
+        }
+      },
+      methods: {
+        clear() {
+          this.title = 'Vue Demo示例1';
+        },
+        show() {
+          this.isShow = !this.isShow;
+        }
+      },
+    });
+</script>
+</body>
+</html>
