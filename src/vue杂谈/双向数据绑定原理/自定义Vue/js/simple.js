@@ -7,9 +7,10 @@ class Vue {
     this.el = document.querySelector(options.el);
     this.data = options.data();
     this.methods = options.methods;
-    this.created = options.created;
 
     this.oWatcherObj = {}; // 所有属性值相关的数据对应的订阅器的集合都放在该对象中
+
+    this.start();
   }
 
   start () {
