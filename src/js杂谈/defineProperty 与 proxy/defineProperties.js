@@ -53,3 +53,28 @@ console.log(obj.age);
 obj.after();
 
 
+function delegateProperty(from, to, propName) {
+  Object.defineProperty(from, propName, {
+    set: (val) => {
+      to[propName] = val;
+    },
+    get: () => to[propName]
+  })
+}
+
+let deprecetedDefaultExport = {}
+let container = {}
+
+// 监听并同步属性
+delegateProperty(deprecetedDefaultExport, container, 'a');
+// delegateProperty(deprecetedDefaultExport, container, 'maxScrollSpeed');
+// delegateProperty(deprecetedDefaultExport, container, 'wrapChild');
+// delegateProperty(deprecetedDefaultExport, container, 'dropHandler');
+
+console.log('deprecetedDefaultExport:', deprecetedDefaultExport, container)
+deprecetedDefaultExport.a = 1
+
+console.log('deprecetedDefaultExport:', deprecetedDefaultExport, container)
+deprecetedDefaultExport.a = 2
+
+console.log('deprecetedDefaultExport:', deprecetedDefaultExport, container)

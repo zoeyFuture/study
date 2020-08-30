@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript惰性函数</title>
+</head>
+<body>
+  <h2>JavaScript惰性函数</h2>
+</body>
+
+<script>
+
+  // 同名函数会被覆盖
+  function a() {
+    console.log('this is a')
+  }
+  function a() {
+    console.log('this is other a')
+  }
+
+  /**
+  * js中，不能存在同名函数，因为在创建词法作用域的时候，函数声明会被提前，所以这里输出：“this is other a”
+  */
+  a() // this is other a
+
+
+
+  function b() {
+    console.log('b')
+
+    b = function() {
+      console.log('other b')
+    }
+  }
+
+  /**
+  * 两个函数都会执行，如果把b1换成b的话，就可以实现重写b函数的目的，利用这种方式，就可以得到惰性函数，
+  * 此时第一次会输出：b，之后就只会输出：other b
+  */
+  b() // b
+  b() // other b
+  b() // other b
+
+
+// 惰性函数的实际应用：为dom添加事件
+
+function addEvent(type, element, fun) {
+
+  /**
+  * DOM2级事件定义了两个方法用于畜栏里指定和删除事件处理程序：
+  *   addEventListener
+  *   removeEventListener
+  */
+    if (element.addEventListener) {
+      addEvent = function (type, element, fun) {
+        element.addEventListener(type, fun, false)
+      }
+    }
+  /**
+  * IE（IE7、IE8）不支持addEventListener和removeEventListener方法，实现了两个类似的方法：
+  *   attachEvent
+  *   detachEvent
+
+  * attachEvent——兼容：IE7、IE8；不兼容firefox、chrome、IE9、IE10、IE11、safari、opera
+  * addEventListener——兼容：firefox、chrome、IE、safari、opera；不兼容IE7、IE8
+  */
+    else if(element.attachEvent){
+      addEvent = function (type, element, fun) {
+        element.attachEvent('on' + type, fun)
+      }
+    }
+    else{
+      addEvent = function (type, element, fun) {
+        element['on' + type] = fun
+      }
+    }
+
+    return addEvent(type, element, fun)
+}
+
+
+// 函数会在每次运行时根据浏览器的不同选定相应的监听器，但每次运行时所有的代码都要跑一遍，这明显不够好，我们可以利用函数重写，当函数第一次运行时，我们就判断出来了浏览器支持哪种监听器，以后只要将方法替换当前的方法就可以了
+</script>
+</html>
