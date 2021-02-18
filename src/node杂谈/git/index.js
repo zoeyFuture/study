@@ -22,6 +22,7 @@ const gitCommit = (time) => {
       console.error('commit 失败：' + error)
       return false
     }
+    console.log('commit 成功，时间：' + time)
   })
 }
 
