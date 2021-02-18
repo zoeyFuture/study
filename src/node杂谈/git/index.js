@@ -18,7 +18,10 @@ const updateFile = () => {
 
 const gitCommit = (time) => {
   simpleGit().add('./*').commit('自动 commit，时间：' + time).push(['-u', 'origin', 'master'], error => {
-    console.log('commit 成功，时间：' + time)
+    if (error) {
+      console.error('commit 失败：' + error)
+      return false
+    }
   })
 }
 
