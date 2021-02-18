@@ -1,0 +1,40 @@
+{
+  "name": "tsproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "private": false,
+  "publisher": "wbjqiqi@163.com",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "keywords": [
+    "my-ts"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.5.5",
+    "awesome-typescript-loader": "^5.2.1",
+    "clean-webpack-plugin": "^1.0.1",
+    "jest": "^23.4.2",
+    "prettier": "^1.16.4",
+    "source-map-loader": "^0.2.4",
+    "ts-jest": "^23.0.1",
+    "ts-lint": "^4.5.1",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.11.0",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.5.2",
+    "webpack": "^4.28.1"
+  }
+}

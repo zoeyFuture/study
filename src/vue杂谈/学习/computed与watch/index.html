@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo示例1</title>
+    <link rel="stylesheet" href="../自定义Vue/index.css">
+</head>
+<body>
+<div id="app">
+    <div>
+        <input type="text" v-model="firstName">
+        <div>{{firstName}} - {{lastName}}</div>
+        <div>{{fullName}}</div>
+    </div>
+
+    <hr>
+
+    <div>
+        <input type="text" v-model="complexObj.name">
+        <div>{{complexObj.name}}</div>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

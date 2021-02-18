@@ -1,0 +1,20 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "umd",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true, //for angular to be able to use metadata we specify in our components.
+    "experimentalDecorators": true, //angular needs decorators like @Component, @Injectable, etc.
+    "removeComments": false,
+    "noImplicitAny": false,
+
+    "baseUrl": "./",
+    // 输出目录，貌似不能和输入目录相同 555
+    "outDir": "./js",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  }
+}

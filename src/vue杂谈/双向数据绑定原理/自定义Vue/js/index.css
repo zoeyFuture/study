@@ -1,0 +1,11 @@
+#app {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#app input, #app textarea
+{
+  width: 300px;
+  height: 26px;
+  font-size: 16px;
+}

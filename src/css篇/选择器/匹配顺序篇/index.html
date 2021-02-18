@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>Css选择器匹配</title>
+    <style>
+        div {
+            width: 300px;
+            max-height: 180px;
+            margin-top: 20px;
+        }
+
+        .a.b {
+            background-color: blue;
+            color: yellow;
+        }
+
+        .b.a {
+            background-color: yellow;
+            color: blue;
+        }
+
+        .a .b {
+            background-color: black;
+            color: white;
+        }
+
+        .b .a {
+            background-color: white;
+            color: black;
+        }
+
+        .a {
+            background-color: red;
+            color: green;
+        }
+
+        .b {
+            background-color: green;
+            color: red;
+        }
+    </style>
+</head>
+
+<div class="a">.a</div>
+
+<div class="b">.b</div>
+
+<div class="a b">.a.b</div>
+
+<div class="b a">.b.a</div>
+
+<div class="a">
+    <div class="b">.a .b</div>
+</div>
+
+<div class="b">
+    <div class="a">.b .a</div>
+</div>
+
+<div class="a">
+    <div class="a b">.a .a .b</div>
+</div>
+
+<div class="b">
+    <div class="b a">.b .b .a</div>
+</div>
+
+</html>

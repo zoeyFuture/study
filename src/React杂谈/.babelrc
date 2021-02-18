@@ -1,0 +1,10 @@
+{
+  "presets": [
+    // 把es6转成es5
+    "babel-preset-es2015"
+  ],
+  // 把装饰器语法转成es5
+  "plugins": [
+    "transform-decorators-legacy"
+  ]
+}
