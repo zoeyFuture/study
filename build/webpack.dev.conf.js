@@ -24,7 +24,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
 
-        ...utils.getHtmls(),
+        // ...utils.getHtmls(),
     ]
 })
 

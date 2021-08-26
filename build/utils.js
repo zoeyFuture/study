@@ -2,7 +2,6 @@ var path = require('path')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-var pagesConfig = require('../demo/config')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 exports.assetsPath = function (_path) {
@@ -73,40 +72,4 @@ exports.styleLoaders = function (options) {
     })
   }
   return output
-}
-
-exports.getEntrys = function () {
-  const entrys = {};
-  pagesConfig.pages.forEach(page => {
-    entrys[page] = `./src/page/${page}/index.js`
-  });
-  return entrys;
-}
-
-exports.getHtmls = function(minimize) {
-  if(minimize) {
-    return pagesConfig.pages.map((page) => (
-      new HtmlWebpackPlugin({
-        filename: `${page}.html`,
-        template:  `./src/page/${page}/index.html`,
-        inject: true,
-        chunks: [`${page}`, 'vendor', 'manifest'],
-        minify: {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeAttributeQuotes: true,
-        },
-        chunksSortMode: 'dependency',
-      })
-    ));
-  }
-
-  return pagesConfig.pages.map((page) => (
-    new HtmlWebpackPlugin({
-      filename: `${page}.html`,
-      template:  `./src/page/${page}/index.html`,
-      inject: true,
-      chunks: [`${page}`, 'vendor', 'manifest'],
-    })
-  ));
 }
