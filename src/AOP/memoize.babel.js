@@ -22,10 +22,9 @@ function computed(target, name, descriptor) {
     return table[name] = getter.call(this);
   };
 
-  descriptor.set = function (val) {
-    let table = memoizationFor(this);
-    setter.call(this, val);
-    table[name] = val;
+  descriptor.set = function (value) {
+    setter.call(this, value);
+    memoized.delete(this);
   };
 }
 
@@ -61,6 +60,8 @@ let Person = (_class = class Person {
 const person = new Person('张 三');
 console.log('person:', person.name);
 console.log('person:', person.name);
+console.log('person:', person.name);
 person.name = '李 四';
+console.log('person:', person.name);
 console.log('person:', person.name);
 console.log('person:', person.name);
